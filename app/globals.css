@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ── Tokens ───────────────────────────────────────────────────────────────
+   Rosé Pine (dark, default) and Rosé Pine Dawn (light), plus the neon-pink
+   brand gradient. Components only ever reference these variables. */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --base: #191724;
+  --deep: #110f19;
+  --surface: #1f1d2e;
+  --overlay: #26233a;
+  --line: rgb(110 106 134 / 0.22);
+  --line-strong: rgb(144 140 170 / 0.38);
+  --muted: #6e6a86;
+  --subtle: #908caa;
+  --ink: #e0def4;
+  --love: #eb6f92;
+  --gold: #f6c177;
+  --rose: #ebbcba;
+  --pine: #31748f;
+  --foam: #9ccfd8;
+  --iris: #c4a7e7;
+  --neon: #ff4d94;
+  --neon-2: #ff7ab6;
+  --on-neon: #1a0a12;
+  --glow: rgb(255 77 148 / 0.35);
+  --grid: rgb(196 167 231 / 0.07);
+  --card: rgb(31 29 46 / 0.6);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --base: #faf4ed;
+  --deep: #f2e9e1;
+  --surface: #fffaf3;
+  --overlay: #f2e9e1;
+  --line: rgb(87 82 121 / 0.14);
+  --line-strong: rgb(87 82 121 / 0.28);
+  --muted: #9893a5;
+  --subtle: #797593;
+  --ink: #575279;
+  --love: #b4637a;
+  --gold: #ea9d34;
+  --rose: #d7827e;
+  --pine: #286983;
+  --foam: #56949f;
+  --iris: #907aa9;
+  --neon: #d6336c;
+  --neon-2: #e85d92;
+  --on-neon: #fffaf3;
+  --glow: rgb(214 51 108 / 0.22);
+  --grid: rgb(144 122 169 / 0.12);
+  --card: rgb(255 250 243 / 0.75);
+}
+
+@theme inline {
+  --color-base: var(--base);
+  --color-deep: var(--deep);
+  --color-surface: var(--surface);
+  --color-overlay: var(--overlay);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-ink: var(--ink);
+  --color-love: var(--love);
+  --color-gold: var(--gold);
+  --color-rose: var(--rose);
+  --color-pine: var(--pine);
+  --color-foam: var(--foam);
+  --color-iris: var(--iris);
+  --color-neon: var(--neon);
+  --color-on-neon: var(--on-neon);
+  --color-card: var(--card);
+
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk Variable", "Inter Variable", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
+
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 3.2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    background: var(--base);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--base);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--neon) 35%, transparent);
+    color: var(--ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--neon);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ── Brand utilities ──────────────────────────────────────────────────── */
+@utility text-gradient {
+  background: linear-gradient(100deg, var(--neon) 0%, var(--love) 40%, var(--iris) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient-brand {
+  background-image: linear-gradient(110deg, var(--neon) 0%, var(--love) 45%, var(--iris) 100%);
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@utility mask-fade-b {
+  mask-image: linear-gradient(to bottom, black 40%, transparent);
+}
+
+@utility mask-radial {
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 72%);
+}
+
+@utility glass {
+  background: var(--card);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+/* Hairline gradient border (1px) that lights up on hover. */
+@utility ring-gradient {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(140deg, color-mix(in oklab, var(--neon) 70%, transparent), transparent 40%, transparent 60%, color-mix(in oklab, var(--iris) 60%, transparent));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.45;
+    transition: opacity 0.35s ease;
+  }
+  &:hover::before,
+  &:focus-within::before {
+    opacity: 1;
+  }
+}
+
+/* Reveal-on-scroll (see components/ui/reveal.tsx). */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal[data-shown="true"] {
+  opacity: 1;
+  transform: none;
+}
+html:not([data-js]) .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Placeholder line-art is drawn for dark surfaces; deepen it on Dawn. */
+:root[data-theme="light"] .placeholder-art {
+  filter: saturate(1.6) brightness(0.8);
+}

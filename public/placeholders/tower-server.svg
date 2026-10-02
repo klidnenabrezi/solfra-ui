@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" fill="none" stroke="url(#g)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<defs>
+<linearGradient id="g" gradientUnits="userSpaceOnUse" x1="20" y1="20" x2="300" y2="220"><stop offset="0" stop-color="#ff4d94"/><stop offset=".5" stop-color="#eb6f92"/><stop offset="1" stop-color="#c4a7e7"/></linearGradient>
+<linearGradient id="f" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff4d94" stop-opacity=".14"/><stop offset="1" stop-color="#c4a7e7" stop-opacity=".04"/></linearGradient>
+<linearGradient id="t" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#eb6f92" stop-opacity=".22"/><stop offset="1" stop-color="#c4a7e7" stop-opacity=".06"/></linearGradient>
+<linearGradient id="s" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c4a7e7" stop-opacity=".16"/><stop offset="1" stop-color="#c4a7e7" stop-opacity=".03"/></linearGradient>
+<radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff4d94" stop-opacity=".28"/><stop offset="1" stop-color="#ff4d94" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="160" cy="214" rx="120" ry="10" fill="url(#glow)" stroke="none"/>
+<path d="M112 46 L130 32 H226 L208 46 Z" fill="url(#t)"/><path d="M208 46 L226 32 V190 L208 204 Z" fill="url(#s)"/><rect x="112" y="46" width="96" height="158" rx="4" fill="url(#f)"/><rect x="124" y="60" width="32" height="14" rx="1.5" /><rect x="164" y="60" width="32" height="14" rx="1.5" /><rect x="124" y="80" width="32" height="14" rx="1.5" /><rect x="164" y="80" width="32" height="14" rx="1.5" /><rect x="124" y="100" width="32" height="14" rx="1.5" /><rect x="164" y="100" width="32" height="14" rx="1.5" /><rect x="124" y="120" width="32" height="14" rx="1.5" /><rect x="164" y="120" width="32" height="14" rx="1.5" /><g stroke-width="1.5"><path d="M126 160 h68"/><path d="M126 167 h68"/><path d="M126 174 h68"/><path d="M126 181 h68"/></g><circle cx="190" cy="148" r="5"/><circle cx="130" cy="148" r="2.4" fill="#9ccfd8" stroke="none" class="led"/><circle cx="140" cy="148" r="2.4" fill="#f6c177" stroke="none" class="led"/>
+</svg>
